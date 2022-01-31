@@ -1,0 +1,18 @@
+<h1>{{title}}</h1>
+
+<div>
+  Please enter the labels:
+  <input type='text' class='input' #label id='tt' />
+
+
+  <input type='submit' class='butt'value='ADD' (click)="addLabel(label.value)"/>
+  <div class='words'>
+    <button class='label'  [style.background-color]="getColor(label.id)" (click)="select(label.id)" *ngFor="let label of labels" [ngStyle]="{'color':'{{color}}'}">{{label.name}}</button>
+  </div>
+  <div  class='area' (mouseup)="select_text($event)"   >
+    {{text}}
+  </div>
+  
+</div>
+<div class='error'>{{error}}</div>
+<button (click)="export_json()">Export json</button>
